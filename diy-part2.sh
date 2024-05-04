@@ -48,3 +48,17 @@ sed -i 's/"MWAN3 Helper"/"分流助手"/g' `egrep "MWAN3 Helper" -rl ./`
 sed -i 's/"ShadowSocksR Plus+"/"SSR Plus+"/g' `egrep "ShadowSocksR Plus+" -rl ./`
 sed -i 's/"frp Server"/"Frp服务端"/g' `egrep "frp Server" -rl ./`
 sed -i 's/"Terminal"/"终端"/g' `egrep "Terminal" -rl ./`
+
+#DIY信息
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='CN2014 $(date +"%Y%m%d")'/g" package/base-files/files/etc/openwrt_release
+
+cat > package/base-files/files/etc/banner << EOF
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ %D %V, %C
+ -----------------------------------------------------
+EOF
